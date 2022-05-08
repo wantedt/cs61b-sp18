@@ -11,7 +11,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.net.HttpURLConnection;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -399,7 +398,7 @@ public final class In {
 
     /**
      * Reads all ints from stdin 
-     * @deprecated Clearer to use {@link StdIn#readAllInts()}
+     * @deprecated Clearer to use
      */
     public static int[] readInts() {
         return new In().readAllInts();
@@ -407,16 +406,16 @@ public final class In {
 
    /**
      * Reads all doubles from stdin
-     * @deprecated Clearer to use {@link StdIn#readAllDoubles()}
-     */
+     * @deprecated Clearer to use
+    */
     public static double[] readDoubles() {
         return new In().readAllDoubles();
     }
 
    /**
      * Reads all strings from stdin
-     * @deprecated Clearer to use {@link StdIn#readAllStrings()}
-     */
+     * @deprecated Clearer to use
+    */
     public static String[] readStrings() {
         return new In().readAllStrings();
     }
