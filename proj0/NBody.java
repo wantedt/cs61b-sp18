@@ -1,6 +1,8 @@
 import examples.StdDraw;
 
 public class NBody {
+    private static String imageToDraw = "images/starfield.jpg";
+
     public static double readRadius(String fileName) {
         In in = new In(fileName);
         int numOfPlanets = in.readInt();
@@ -8,11 +10,12 @@ public class NBody {
     }
 
     public static Planet[] readPlanets(String fileName) {
-        Planet[] planets = new Planet[5];
         In in = new In(fileName);
         int numOfPlanets = in.readInt();
+        Planet[] planets = new Planet[numOfPlanets];
+
         double radius = in.readDouble();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < numOfPlanets; i++) {
             planets[i] = new Planet(in.readDouble(), in.readDouble(), in.readDouble(),
                     in.readDouble(), in.readDouble(), in.readString());
         }
@@ -29,8 +32,7 @@ public class NBody {
         StdDraw.setCanvasSize(512,512);
         StdDraw.setScale(-1 * radius, radius);
 
-        String background = "images/starfield.jpg";
-        StdDraw.picture(0, 0, background);
+        StdDraw.picture(0, 0, imageToDraw);
 
         for (Planet planet : planets) {
             StdDraw.setScale(-1 * radius, radius);
@@ -51,7 +53,7 @@ public class NBody {
                 planets[i].update(dt, xForces[i], yForces[i]);
             }
 
-            StdDraw.picture(0, 0, background);
+            StdDraw.picture(0, 0, imageToDraw);
 
             for (Planet planet : planets) {
                 planet.draw();
