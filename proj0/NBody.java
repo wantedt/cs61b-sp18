@@ -25,9 +25,9 @@ public class NBody {
         double radius = readRadius(args[2]);
         Planet[] planets = readPlanets(args[2]);
 
-
+        StdDraw.enableDoubleBuffering();
+        StdDraw.setCanvasSize(512,512);
         StdDraw.setScale(-1 * radius, radius);
-        StdDraw.clear();
 
         String background = "images/starfield.jpg";
         StdDraw.picture(0, 0, background);
@@ -39,7 +39,6 @@ public class NBody {
 
         StdDraw.show();
 
-        StdDraw.enableDoubleBuffering();
 
         for (double time = 0; time <= T; time += dt) {
             double[] xForces = new double[5];
